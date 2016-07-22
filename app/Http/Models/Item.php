@@ -3,8 +3,11 @@
 namespace App\Http\Models;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Item extends Eloquent
 {
-        protected $table = 'items';
+    use SoftDeletes;
+
+    protected $table = 'items';
 }
