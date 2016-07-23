@@ -5,6 +5,8 @@
 
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/font-awesome-4.6.3/css/font-awesome.min.css">
+        <script type="text/javascript" src="/js/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/keys.js"></script>
 
         <style>
 html, body {
@@ -34,14 +36,20 @@ td {
 .content {
     text-align: center;
     display: inline-block;
+    padding: 20px;
 }
 
 .title {
     font-size: 96px;
 }
 
+.circle-cell {
+    padding: 0px;
+}
+
 .leftcol {
     text-align: left;
+    padding-left: 20px;
 }
 
 .rightcol {
@@ -66,14 +74,54 @@ td {
     <body>
         <div class="container">
             <div class="content">
-                <div class="float-right"><span id="qm">?</span></div>
-                <div class="title"><i class="fa fa-angle-double-down"></i>Todo:</div>
-                <table>
+
+                <div id="fade" hidden>
+                    <table>
+                    <tr id="key-1"> 
+                        <td class="leftcol">?</td>
+                        <td class="rightcol">This menu.</td>
+                    </tr>
+                    <tr id="key-2"> 
+                        <td class="leftcol">a</td>
+                        <td class="rightcol">Add to top of list.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">A</td>
+                        <td class="rightcol">Add to bottom of list.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">j</td>
+                        <td class="rightcol">Go up.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">k</td>
+                        <td class="rightcol">Go down.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">D</td>
+                        <td class="rightcol">Delete from list.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">g</td>
+                        <td class="rightcol">Go to top.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">G</td>
+                        <td class="rightcol">Go to bottom.</td>
+                    </tr>
+                    </table>
+                </div>
+
+                <div class="title">
+                    <i class="fa fa-angle-double-down"></i> todo:
+                    <span id="qm">?</span>
+                </div>
+                <table id="item-table">
                 @foreach ( $items as $item )
                 @if ( !$item->trashed() )
                 <tr id="item-{{ $item->id }}"> 
-                    <td hidden><i class="fa fa-circle-o"></i></td>
-                    <td class="leftcol">{{ $item->name }},</td>
+                    <td class="circle-cell"><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
+                    <td class="leftcol">{{ $item->name }}</td>
                     <td class="rightcol">{{ $item->due }} </td>
                 </tr>
                 @endif
