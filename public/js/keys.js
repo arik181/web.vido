@@ -106,6 +106,16 @@ $(function() {
         }
         else if ( shifted && press && code == 71 ) {
             // G: Go to bottom
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                $(this).removeClass('selected');
+                $(this).find('i').hide();
+            });
+
+            iterator = $('#item-table tr');
+            selected = iterator.last();
+            selected.addClass('selected');
+            selected.find('i').toggle();
         }
     });
 
