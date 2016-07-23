@@ -58,10 +58,10 @@ $(function() {
                 }
             });
         }
-        else if ( press && code == 74 ) {
+        else if ( shifted && press && code == 74 ) {
             // J: Move item down
         }
-        else if ( press && code == 75 ) {
+        else if ( shifted && press && code == 75 ) {
             // K: Move item up
         }
         else if ( shifted && press && code == 68 ) {
@@ -90,11 +90,19 @@ $(function() {
                 selected.addClass('selected');
                 selected.find('i').toggle();
             });
-
-
         }
-        else if ( shifted && press && code == 103 ) {
+        else if ( press && code == 103 ) {
             // g: Go to top
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                $(this).removeClass('selected');
+                $(this).find('i').hide();
+            });
+
+            iterator = $('#item-table tr');
+            selected = iterator.first();
+            selected.addClass('selected');
+            selected.find('i').toggle();
         }
         else if ( shifted && press && code == 71 ) {
             // G: Go to bottom

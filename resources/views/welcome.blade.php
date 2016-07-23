@@ -60,6 +60,10 @@ td {
     float: right;
 }
 
+#fade {
+    font-size: 14px;
+}
+
 #plus {
     font-size: 24px;
     font-weight: bold;
@@ -78,43 +82,51 @@ td {
                 <div id="fade" hidden>
                     <table>
                     <tr id="key-1"> 
-                        <td class="leftcol">? / Return / Enter</td>
+                        <td class="leftcol" style="color:green;">?</td>
                         <td class="rightcol">This menu.</td>
                     </tr>
+                    <tr id="key-1"> 
+                        <td class="leftcol" style="color:red;"> Ret/Ent</td>
+                        <td class="rightcol">Edit an item.</td>
+                    </tr>
                     <tr id="key-2"> 
-                        <td class="leftcol">a</td>
-                        <td class="rightcol">Add to top of list.</td>
+                        <td class="leftcol" style="color:red;">a</td>
+                        <td class="rightcol">Add to top.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">A</td>
-                        <td class="rightcol">Add to bottom of list.</td>
+                        <td class="leftcol" style="color:red;">A</td>
+                        <td class="rightcol">Add to bottom.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">j</td>
+                        <td class="leftcol" style="color:green;">j</td>
                         <td class="rightcol">Go up.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">k</td>
+                        <td class="leftcol" style="color:green;">k</td>
                         <td class="rightcol">Go down.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">J</td>
+                        <td class="leftcol" style="color:red;">J</td>
                         <td class="rightcol">Move item up.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">K</td>
+                        <td class="leftcol" style="color:red;">K</td>
                         <td class="rightcol">Move item down.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">D</td>
+                        <td class="leftcol" style="color:red;">d</td>
+                        <td class="rightcol">Defer till tomorrow.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol" style="color:green;">D</td>
                         <td class="rightcol">Delete from list.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">g</td>
+                        <td class="leftcol" style="color:red;">g</td>
                         <td class="rightcol">Go to top.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol">G</td>
+                        <td class="leftcol" style="color:red;">G</td>
                         <td class="rightcol">Go to bottom.</td>
                     </tr>
                     </table>
@@ -122,7 +134,7 @@ td {
 
                 <div class="title">
                     <i class="fa fa-angle-double-down"></i> todo:
-                    <span id="qm">?</span>
+                    <span id="qm" title="Type ? for commands">?</span>
                 </div>
                 <table id="item-table">
                 @foreach ( $items as $item )
