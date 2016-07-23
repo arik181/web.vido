@@ -84,7 +84,14 @@ $(function() {
                         $(this).remove();
                     }
                 });
+
+                iterator = $('#item-table tr');
+                selected = iterator.first();
+                selected.addClass('selected');
+                selected.find('i').toggle();
             });
+
+
         }
         else if ( shifted && press && code == 103 ) {
             // g: Go to top
@@ -98,3 +105,4 @@ $(function() {
         shifted = false;
     });
 });
+
