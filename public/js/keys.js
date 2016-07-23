@@ -16,6 +16,10 @@ $(function() {
         console.log(code);
 
         fade    = $('#fade');
+        if ( press && code == 13 ) {
+            // Return: Show commands
+            fade.toggle();
+        }
         if ( shifted && press && code == 63 ) {
             // ?: Show commands
             fade.toggle();
@@ -54,8 +58,33 @@ $(function() {
                 }
             });
         }
+        else if ( press && code == 74 ) {
+            // J: Move item down
+        }
+        else if ( press && code == 75 ) {
+            // K: Move item up
+        }
         else if ( shifted && press && code == 68 ) {
-            // D: Go up
+            // D: Delete item from list
+
+            var id = 0;
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                if ($(this).hasClass('selected'))
+                {
+                    id = $(this).find('.id').text();
+                }
+            });
+
+            $.get( "/delete/" + id, function( data ) {
+                li = $('#item-table tr');
+                li.each(function ( idx, element) {
+                    if ($(this).hasClass('selected'))
+                    {
+                        $(this).remove();
+                    }
+                });
+            });
         }
         else if ( shifted && press && code == 103 ) {
             // g: Go to top

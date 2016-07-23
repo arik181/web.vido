@@ -19,4 +19,10 @@ class Dashboard extends BaseController
         $items = Item::all();
         return view ('welcome', ['items' => $items ]);
     }
+
+    public function deleteItem($id)
+    {
+        $item = Item::find($id);
+        $item->delete();
+    }
 }

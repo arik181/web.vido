@@ -78,7 +78,7 @@ td {
                 <div id="fade" hidden>
                     <table>
                     <tr id="key-1"> 
-                        <td class="leftcol">?</td>
+                        <td class="leftcol">? / Return / Enter</td>
                         <td class="rightcol">This menu.</td>
                     </tr>
                     <tr id="key-2"> 
@@ -96,6 +96,14 @@ td {
                     <tr id="key-3"> 
                         <td class="leftcol">k</td>
                         <td class="rightcol">Go down.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">J</td>
+                        <td class="rightcol">Move item up.</td>
+                    </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol">K</td>
+                        <td class="rightcol">Move item down.</td>
                     </tr>
                     <tr id="key-3"> 
                         <td class="leftcol">D</td>
@@ -120,7 +128,7 @@ td {
                 @foreach ( $items as $item )
                 @if ( !$item->trashed() )
                 <tr id="item-{{ $item->id }}"> 
-                    <td class="circle-cell"><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
+                <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
                     <td class="leftcol">{{ $item->name }}</td>
                     <td class="rightcol">{{ $item->due }} </td>
                 </tr>
