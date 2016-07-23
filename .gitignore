@@ -4,3 +4,9 @@
 Homestead.yaml
 Homestead.json
 .env
+*.swp
+*.swo
+*.swn
+.*.swp
+.*.swo
+.*.swn
