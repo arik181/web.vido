@@ -10,4 +10,5 @@ class Item extends Eloquent
     use SoftDeletes;
 
     protected $table = 'items';
+
 }

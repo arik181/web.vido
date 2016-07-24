@@ -13,3 +13,4 @@
 
 Route::get('/', 'Dashboard@index');
 Route::get('/delete/{id}', 'Dashboard@deleteItem');
+Route::get('/add/{name}/{due}', 'Dashboard@addItem');

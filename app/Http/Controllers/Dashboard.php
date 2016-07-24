@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 
 use App\Http\Models\Item;
+use Illuminate\Http\Request;
 
 class Dashboard extends BaseController
 {
@@ -24,5 +25,15 @@ class Dashboard extends BaseController
     {
         $item = Item::find($id);
         $item->delete();
+    }
+
+    public function addItem($name, $due)
+    {
+        $item = new Item;
+
+        $item->name = $name;
+        $item->due  = $due;
+
+        $item->save();
     }
 }

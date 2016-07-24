@@ -147,29 +147,33 @@ body {
                     <i class="fa fa-angle-double-down"></i> todo:
                     <span id="qm" title="Type ? for commands" onclick="$('#fade').toggle()">?</span>
                 </div>
-                <table id="upper-input-table">
-                    <tr id="upper-input-row" hidden>
-                        <td class="left-input-col"><input id="upper-name-input" class="name-input"></input></td>
-                        <td class="right-input-col"><input id="upper-due-input" class="due-input"></input></td>
+
+                <form id="input-form">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <table id="upper-input-table">
+                        <tr id="upper-input-row" hidden>
+                            <td class="left-input-col"><input id="upper-name-input" class="name-input"></input></td>
+                            <td class="right-input-col"><input id="upper-due-input" class="due-input"></input></td>
+                        </tr>
+                    </table>
+                    <table id="item-table">
+                    @foreach ( $items as $item )
+                    @if ( !$item->trashed() )
+                    <tr id="item-{{ $item->id }}"> 
+                        <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
+                        <td class="leftcol">{{ $item->name }}</td>
+                        <td class="rightcol">{{ $item->due }} </td>
                     </tr>
-                </table>
-                <table id="item-table">
-                @foreach ( $items as $item )
-                @if ( !$item->trashed() )
-                <tr id="item-{{ $item->id }}"> 
-                    <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
-                    <td class="leftcol">{{ $item->name }}</td>
-                    <td class="rightcol">{{ $item->due }} </td>
-                </tr>
-                @endif
-                @endforeach
-                </table>
-                <table id="lower-input-table">
-                <tr id="lower-input-row" hidden>
-                    <td class="left-input-col"><input id="lower-name-input" class="name-input"></input></td>
-                    <td class="right-input-col"><input id="lower-due-input" class="due-input"></input></td>
-                </tr>
-                </table>
+                    @endif
+                    @endforeach
+                    </table>
+                    <table id="lower-input-table">
+                    <tr id="lower-input-row" hidden>
+                        <td class="left-input-col"><input id="lower-name-input" class="name-input"></input></td>
+                        <td class="right-input-col"><input id="lower-due-input" class="due-input"></input></td>
+                    </tr>
+                    </table>
+                </form>
             </div>
         </div>
     </body>

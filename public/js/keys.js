@@ -15,6 +15,25 @@ $(function() {
 
         if ( press && code == 13 ) {
             // Return: 
+            upperrowfocused   = $('#upper-name-input').is(':focus') || $('#upper-due-input').is(':focus');
+            lowerrowfocused   = $('#lower-name-input').is(':focus') || $('#lower-due-input').is(':focus');
+
+            iname = upperrowfocused ? $('#upper-name-input').val() : $('#lower-name-input').val();
+            idue  = upperrowfocused ? $('#upper-due-input').val()  : $('#lower-name-input').val();
+
+            $.ajax({
+                url: '/add/' + iname + '/' + idue,
+                type: 'get',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+
+            $('#upper-name-input').val('');
+            $('#lower-name-input').val('');
+            $('#upper-due-input').val('');
+            $('#lower-due-input').val('');
+
             $('input').blur();
             $('#upper-input-row').hide();
             $('#lower-input-row').hide();
