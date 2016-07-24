@@ -101,11 +101,11 @@ body {
                         <td class="rightcol">Edit an item.</td>
                     </tr>
                     <tr id="key-2"> 
-                        <td class="leftcol" style="color:red;">a</td>
+                        <td class="leftcol" style="color:red;">a / i</td>
                         <td class="rightcol">Add to top.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">A</td>
+                        <td class="leftcol" style="color:red;">A / I</td>
                         <td class="rightcol">Add to bottom.</td>
                     </tr>
                     <tr id="key-3"> 
