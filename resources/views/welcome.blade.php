@@ -22,11 +22,6 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-td {
-    padding-right: 80px;
-    padding-left: 80px;
-}
-
 .container {
     text-align: center;
     display: table-cell;
@@ -43,17 +38,33 @@ td {
     font-size: 96px;
 }
 
+.input-circle-cell {
+    left: 200px;
+}
+
 .circle-cell {
     padding: 0px;
+    padding-right: 20px;
+}
+
+.left-input-col {
+    text-align: left;
+    padding-left: 35px;
+}
+
+.right-input-col {
+    text-align: right;
+    margin-left: 35px;
 }
 
 .leftcol {
     text-align: left;
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .rightcol {
     text-align: right;
+    padding-left: 20px;
 }
 
 .float-right {
@@ -62,6 +73,7 @@ td {
 
 #fade {
     font-size: 14px;
+    text-align: center;
 }
 
 #plus {
@@ -78,7 +90,6 @@ td {
     <body>
         <div class="container">
             <div class="content">
-
                 <div id="fade" hidden>
                     <table>
                     <tr id="key-1"> 
@@ -122,11 +133,11 @@ td {
                         <td class="rightcol">Delete from list.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">g</td>
+                        <td class="leftcol" style="color:green;">g</td>
                         <td class="rightcol">Go to top.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">G</td>
+                        <td class="leftcol" style="color:green;">G</td>
                         <td class="rightcol">Go to bottom.</td>
                     </tr>
                     </table>
@@ -134,18 +145,30 @@ td {
 
                 <div class="title">
                     <i class="fa fa-angle-double-down"></i> todo:
-                    <span id="qm" title="Type ? for commands">?</span>
+                    <span id="qm" title="Type ? for commands" onclick="$('#fade').toggle()">?</span>
                 </div>
+                <table id="upper-input-table">
+                    <tr id="upper-input-row" hidden>
+                        <td class="left-input-col"><input id="upper-name-input" class="name-input"></input></td>
+                        <td class="right-input-col"><input id="upper-due-input" class="due-input"></input></td>
+                    </tr>
+                </table>
                 <table id="item-table">
                 @foreach ( $items as $item )
                 @if ( !$item->trashed() )
                 <tr id="item-{{ $item->id }}"> 
-                <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
+                    <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
                     <td class="leftcol">{{ $item->name }}</td>
                     <td class="rightcol">{{ $item->due }} </td>
                 </tr>
                 @endif
                 @endforeach
+                </table>
+                <table id="lower-input-table">
+                <tr id="lower-input-row" hidden>
+                    <td class="left-input-col"><input id="lower-name-input" class="name-input"></input></td>
+                    <td class="right-input-col"><input id="lower-due-input" class="due-input"></input></td>
+                </tr>
                 </table>
             </div>
         </div>

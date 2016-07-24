@@ -8,29 +8,52 @@ $(function() {
     selected.addClass('selected');
     selected.find('i').toggle();
 
-    $(document).keypress(function( event ) {
+    $('input').keypress(function( event ) {
         shifted = event.shiftKey;
-        press   = event.type == 'keypress';
+        press   = event.type == 'keypress'; 
+        code    = event.charCode;
+
+        if ( press && code == 13 ) {
+            // Return: 
+            $('input').blur();
+            $('#upper-input-row').hide();
+            $('#lower-input-row').hide();
+        }
+    });
+
+    $(document).keypress(function( event ) {
+
+        if ( $('input:focus').length > 0 ) {  
+            return; 
+        }
+
+        shifted = event.shiftKey;
+        press   = event.type == 'keypress'; 
         code    = event.charCode;
 
         console.log(code);
 
         fade    = $('#fade');
         if ( press && code == 13 ) {
-            // Return: Show commands
-            fade.toggle();
+            // Return: 
         }
         if ( shifted && press && code == 63 ) {
             // ?: Show commands
             fade.toggle();
         }
-        else if ( shifted && press && code == 97 ) {
+        if ( press && code == 65 ) {
             // A: Add to bottom of list
+            $('#upper-input-row').hide();
+            $('#lower-input-row').toggle();
+            $('#lower-name-input').focus();
         }
-        else if ( press && code == 97 ) {
+        if ( press && code == 97 ) {
             // a: Add to top of list
+            $('#lower-input-row').hide();
+            $('#upper-input-row').toggle();
+            $('#upper-name-input').focus();
         }
-        else if ( press && code == 106 ) {
+        if ( press && code == 106 ) {
             // j: Go down
             li = $('#item-table tr');
             li.each(function ( idx, element) {
@@ -44,7 +67,7 @@ $(function() {
                 }
             });
         }
-        else if ( press && code == 107 ) {
+        if ( press && code == 107 ) {
             // k: Go up
             li = $('#item-table tr');
             li.each(function ( idx, element) {
@@ -58,13 +81,13 @@ $(function() {
                 }
             });
         }
-        else if ( shifted && press && code == 74 ) {
+        if ( shifted && press && code == 74 ) {
             // J: Move item down
         }
-        else if ( shifted && press && code == 75 ) {
+        if ( shifted && press && code == 75 ) {
             // K: Move item up
         }
-        else if ( shifted && press && code == 68 ) {
+        if ( shifted && press && code == 68 ) {
             // D: Delete item from list
 
             var id = 0;
@@ -91,7 +114,7 @@ $(function() {
                 selected.find('i').toggle();
             });
         }
-        else if ( press && code == 103 ) {
+        if ( press && code == 103 ) {
             // g: Go to top
             li = $('#item-table tr');
             li.each(function ( idx, element) {
@@ -104,7 +127,7 @@ $(function() {
             selected.addClass('selected');
             selected.find('i').toggle();
         }
-        else if ( shifted && press && code == 71 ) {
+        if ( shifted && press && code == 71 ) {
             // G: Go to bottom
             li = $('#item-table tr');
             li.each(function ( idx, element) {
@@ -117,10 +140,10 @@ $(function() {
             selected.addClass('selected');
             selected.find('i').toggle();
         }
+        event.preventDefault();
     });
 
     $(document).keyup(function( event ) {
         shifted = false;
     });
 });
-
