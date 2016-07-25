@@ -19,7 +19,9 @@ $(function() {
             lowerrowfocused   = $('#lower-name-input').is(':focus') || $('#lower-due-input').is(':focus');
 
             iname = upperrowfocused ? $('#upper-name-input').val() : $('#lower-name-input').val();
-            idue  = upperrowfocused ? $('#upper-due-input').val()  : $('#lower-name-input').val();
+            idue  = upperrowfocused ? 'today' : 'someday';
+
+            console.log(idue);
 
             $.ajax({
                 url: '/add/' + iname + '/' + idue,
@@ -106,9 +108,27 @@ $(function() {
         if ( shifted && press && code == 75 ) {
             // K: Move item up
         }
+        if ( press && code == 100 ) {
+            // d: Defer an item
+            var id = 0;
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                if ($(this).hasClass('selected'))
+                {
+                    id = $(this).find('.id').text();
+                }
+            });
+
+            $.ajax({
+                url: '/defer/' + id,
+                type: 'get',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
         if ( shifted && press && code == 68 ) {
             // D: Delete item from list
-
             var id = 0;
             li = $('#item-table tr');
             li.each(function ( idx, element) {

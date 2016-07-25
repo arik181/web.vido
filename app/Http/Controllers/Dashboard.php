@@ -17,8 +17,24 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        $items = Item::all();
+        $items = Item::orderBy('due', 'asc')->orderBy('index', 'desc')->get();
         return view ('welcome', ['items' => $items ]);
+    }
+
+    public function deferItem($id)
+    {
+        $item = Item::find($id);
+        $due = $item->due;
+        if ( $due == 'today' )
+            $item->due = 'tomorrow';
+        else if ( $due == 'tomorrow' )
+            $item->due = 'someday';
+        else if ( $due == 'someday' )
+            $item->due = 'today';
+
+        if ($item->due != 'today')
+            $item->index = 0;
+        $item->save();
     }
 
     public function deleteItem($id)
@@ -27,12 +43,22 @@ class Dashboard extends BaseController
         $item->delete();
     }
 
-    public function addItem($name, $due)
+    public function addTodayItem($name)
     {
         $item = new Item;
 
         $item->name = $name;
-        $item->due  = $due;
+        $item->due  = 'today';
+
+        $item->save();
+    }
+
+    public function addSomedayItem($name)
+    {
+        $item = new Item;
+
+        $item->name = $name;
+        $item->due  = 'someday';
 
         $item->save();
     }

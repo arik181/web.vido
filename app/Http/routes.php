@@ -13,4 +13,6 @@
 
 Route::get('/', 'Dashboard@index');
 Route::get('/delete/{id}', 'Dashboard@deleteItem');
-Route::get('/add/{name}/{due}', 'Dashboard@addItem');
+Route::get('/add/{name}/today', 'Dashboard@addTodayItem');
+Route::get('/add/{name}/someday', 'Dashboard@addSomedayItem');
+Route::get('/defer/{id}', 'Dashboard@deferItem');

@@ -22,6 +22,10 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+table {
+    width: 380px;
+}
+
 .container {
     text-align: center;
     display: table-cell;
@@ -93,6 +97,12 @@ body {
                 <div id="fade" hidden>
                     <table>
                     <tr id="key-1"> 
+                        <td class="leftcol" style="color:green;">Implemented</td>
+                    </tr>
+                    <tr id="key-1"> 
+                        <td class="rightcol" style="color:red;">Unimplemented</td>
+                    </tr>
+                    <tr id="key-1"> 
                         <td class="leftcol" style="color:green;">?</td>
                         <td class="rightcol">This menu.</td>
                     </tr>
@@ -101,11 +111,11 @@ body {
                         <td class="rightcol">Edit an item.</td>
                     </tr>
                     <tr id="key-2"> 
-                        <td class="leftcol" style="color:red;">a / i</td>
+                        <td class="leftcol" style="color:green;">a / i</td>
                         <td class="rightcol">Add to top.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">A / I</td>
+                        <td class="leftcol" style="color:green;">A / I</td>
                         <td class="rightcol">Add to bottom.</td>
                     </tr>
                     <tr id="key-3"> 
@@ -125,8 +135,8 @@ body {
                         <td class="rightcol">Move item down.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">d</td>
-                        <td class="rightcol">Defer till tomorrow.</td>
+                        <td class="leftcol" style="color:green;">d</td>
+                        <td class="rightcol">Defer item.</td>
                     </tr>
                     <tr id="key-3"> 
                         <td class="leftcol" style="color:green;">D</td>
@@ -144,7 +154,7 @@ body {
                 </div>
 
                 <div class="title">
-                    <i class="fa fa-angle-double-down"></i> todo:
+                    <?php //<i class="fa fa-angle-double-down"></i> ?> voodo:
                     <span id="qm" title="Type ? for commands" onclick="$('#fade').toggle()">?</span>
                 </div>
 
@@ -153,7 +163,7 @@ body {
                     <table id="upper-input-table">
                         <tr id="upper-input-row" hidden>
                             <td class="left-input-col"><input id="upper-name-input" class="name-input"></input></td>
-                            <td class="right-input-col"><input id="upper-due-input" class="due-input"></input></td>
+                            <td class="right-input-col"></td>
                         </tr>
                     </table>
                     <table id="item-table">
@@ -170,7 +180,7 @@ body {
                     <table id="lower-input-table">
                     <tr id="lower-input-row" hidden>
                         <td class="left-input-col"><input id="lower-name-input" class="name-input"></input></td>
-                        <td class="right-input-col"><input id="lower-due-input" class="due-input"></input></td>
+                        <td class="right-input-col"></td>
                     </tr>
                     </table>
                 </form>
