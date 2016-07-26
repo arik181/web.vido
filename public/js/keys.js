@@ -13,23 +13,30 @@ $(function() {
         press   = event.type == 'keypress'; 
         code    = event.charCode;
 
+        console.log(code);
+
         if ( press && code == 13 ) {
             // Return: 
+            
+            // prevents document and body from handling this event.
+            event.stopPropagation();
+
             upperrowfocused   = $('#upper-name-input').is(':focus') || $('#upper-due-input').is(':focus');
             lowerrowfocused   = $('#lower-name-input').is(':focus') || $('#lower-due-input').is(':focus');
 
             iname = upperrowfocused ? $('#upper-name-input').val() : $('#lower-name-input').val();
             idue  = upperrowfocused ? 'today' : 'someday';
 
-            console.log(idue);
-
-            $.ajax({
-                url: '/add/' + iname + '/' + idue,
-                type: 'get',
-                success: function (data) {
-                    location.reload();
-                }
-            });
+            if (iname !== '')
+            {
+                $.ajax({
+                    url: '/add/' + iname + '/' + idue,
+                    type: 'get',
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            }
 
             $('#upper-name-input').val('');
             $('#lower-name-input').val('');
@@ -44,7 +51,8 @@ $(function() {
 
     $(document).keypress(function( event ) {
 
-        if ( $('input:focus').length > 0 ) {  
+        if ( $('input:focus').length > 0 
+        ||   $('#focused').length > 0 ) {  
             return; 
         }
 
@@ -56,7 +64,52 @@ $(function() {
 
         fade    = $('#fade');
         if ( press && code == 13 ) {
-            // Return: 
+            // Return: Edit an existing item
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                if ($(this).hasClass('selected'))
+                {
+                    // Convert col to input
+                    col = $(this).find('td.leftcol');
+                    content = col.text();
+                    col.text('');
+                    input = '<input class="focused" type="text" value="' + content + '"></input>';
+                    col.append(input)
+                    $('.focused').focus().select();
+
+                    $('.focused').keypress(function( event ) {
+
+                        shifted = event.shiftKey;
+                        press   = event.type == 'keypress'; 
+                        code    = event.charCode;
+
+                        if ( press && code == 13 ) {
+
+                            iname = $(this).val();
+                            if (iname !== '')
+                            {
+                                var id = 0;
+                                li = $('#item-table tr');
+                                li.each(function ( idx, element) {
+                                    if ($(this).hasClass('selected'))
+                                    {
+                                        id = $(this).find('.id').text();
+                                    }
+                                });
+
+                                // Update value in DB
+                                $.ajax({
+                                    url: '/update/' + id + '/' + iname,
+                                    type: 'get',
+                                    success: function (data) {
+                                        location.reload();
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            });
         }
         if ( shifted && press && code == 63 ) {
             // ?: Show commands

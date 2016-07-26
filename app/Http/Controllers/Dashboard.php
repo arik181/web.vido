@@ -62,4 +62,13 @@ class Dashboard extends BaseController
 
         $item->save();
     }
+
+    public function updateItem($id, $name)
+    {
+        $item = Item::find($id);
+
+        $item->name = $name;
+
+        $item->save();
+    }
 }

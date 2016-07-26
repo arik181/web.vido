@@ -100,14 +100,14 @@ table {
                         <td class="leftcol" style="color:green;">Implemented</td>
                     </tr>
                     <tr id="key-1"> 
-                        <td class="rightcol" style="color:red;">Unimplemented</td>
+                        <td class="rightcol" style="color:red;">Not Yet Implemented.</td>
                     </tr>
                     <tr id="key-1"> 
                         <td class="leftcol" style="color:green;">?</td>
-                        <td class="rightcol">This menu.</td>
+                        <td class="rightcol">Display help.</td>
                     </tr>
                     <tr id="key-1"> 
-                        <td class="leftcol" style="color:red;"> Ret/Ent</td>
+                        <td class="leftcol" style="color:green;"> Ret/Ent</td>
                         <td class="rightcol">Edit an item.</td>
                     </tr>
                     <tr id="key-2"> 
@@ -154,7 +154,7 @@ table {
                 </div>
 
                 <div class="title">
-                    <?php //<i class="fa fa-angle-double-down"></i> ?> voodo:
+                    <?php //<i class="fa fa-angle-double-down"></i> ?> vido:
                     <span id="qm" title="Type ? for commands" onclick="$('#fade').toggle()">?</span>
                 </div>
 
@@ -168,13 +168,11 @@ table {
                     </table>
                     <table id="item-table">
                     @foreach ( $items as $item )
-                    @if ( !$item->trashed() )
                     <tr id="item-{{ $item->id }}"> 
                         <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
                         <td class="leftcol">{{ $item->name }}</td>
                         <td class="rightcol">{{ $item->due }} </td>
                     </tr>
-                    @endif
                     @endforeach
                     </table>
                     <table id="lower-input-table">
