@@ -144,6 +144,10 @@ table {
                         <td class="leftcol" style="color:green;">G</td>
                         <td class="rightcol">Go to bottom.</td>
                     </tr>
+                    <tr id="key-3"> 
+                        <td class="leftcol" style="color:green;">t</td>
+                        <td class="rightcol">Filter by day.</td>
+                    </tr>
                     </table>
                 </div>
 
@@ -165,7 +169,7 @@ table {
                     <tr id="item-{{ $item->id }}"> 
                         <td class="circle-cell"><div class="id" hidden>{{ $item->id }}</div><i class="fa fa-circle-o" id="circle-{{ $item->id }}" style="display:none;" ></i></td>
                         <td class="leftcol">{{ $item->name }}</td>
-                        <td class="rightcol">{{ $item->due }} </td>
+                        <td class="rightcol">{{ $item->due }}</td>
                     </tr>
                     @endforeach
                     </table>

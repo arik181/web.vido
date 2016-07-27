@@ -266,6 +266,16 @@ $(function() {
             selected.addClass('selected');
             selected.find('i').toggle();
         }
+        if ( press && code == 116 ) {
+            // t: Filter by day
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                todays = $(this).find('.rightcol').text() == 'today';
+                if (!todays)
+                    $(this).hide();
+            });
+
+        }
         event.preventDefault();
     });
 
