@@ -97,12 +97,6 @@ table {
                 <div id="fade" hidden>
                     <table>
                     <tr id="key-1"> 
-                        <td class="leftcol" style="color:green;">Implemented</td>
-                    </tr>
-                    <tr id="key-1"> 
-                        <td class="rightcol" style="color:red;">Not Yet Implemented.</td>
-                    </tr>
-                    <tr id="key-1"> 
                         <td class="leftcol" style="color:green;">?</td>
                         <td class="rightcol">Display help.</td>
                     </tr>
@@ -127,11 +121,11 @@ table {
                         <td class="rightcol">Go down.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">J</td>
+                        <td class="leftcol" style="color:green;">J</td>
                         <td class="rightcol">Move item up.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:red;">K</td>
+                        <td class="leftcol" style="color:green;">K</td>
                         <td class="rightcol">Move item down.</td>
                     </tr>
                     <tr id="key-3"> 
