@@ -145,6 +145,10 @@ table {
                         <td class="rightcol">Go to bottom.</td>
                     </tr>
                     <tr id="key-3"> 
+                        <td class="leftcol" style="color:green;">r</td>
+                        <td class="rightcol">Reset filters.</td>
+                    </tr>
+                    <tr id="key-3"> 
                         <td class="leftcol" style="color:green;">t</td>
                         <td class="rightcol">Filter by day.</td>
                     </tr>
