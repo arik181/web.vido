@@ -17,3 +17,5 @@ Route::get('/add/{name}/today', 'Dashboard@addTodayItem');
 Route::get('/add/{name}/someday', 'Dashboard@addSomedayItem');
 Route::get('/update/{id}/{name}', 'Dashboard@updateItem');
 Route::get('/defer/{id}', 'Dashboard@deferItem');
+Route::get('/incridx/{id}', 'Dashboard@incrIdx');
+Route::get('/decridx/{id}', 'Dashboard@decrIdx');

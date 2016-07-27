@@ -161,9 +161,39 @@ $(function() {
         }
         if ( shifted && press && code == 74 ) {
             // J: Move item down
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                if ($(this).hasClass('selected'))
+                {
+                    id = $(this).find('.id').text();
+                }
+            });
+
+            $.ajax({
+                url: '/incridx/' + id,
+                type: 'get',
+                success: function (data) {
+                    location.reload();
+                }
+            });
         }
         if ( shifted && press && code == 75 ) {
             // K: Move item up
+            li = $('#item-table tr');
+            li.each(function ( idx, element) {
+                if ($(this).hasClass('selected'))
+                {
+                    id = $(this).find('.id').text();
+                }
+            });
+
+            $.ajax({
+                url: '/decridx/' + id,
+                type: 'get',
+                success: function (data) {
+                    location.reload();
+                }
+            });
         }
         if ( press && code == 100 ) {
             // d: Defer an item
