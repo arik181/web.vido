@@ -38,7 +38,7 @@ table {
     padding: 20px;
 }
 
-.title {
+#title {
     font-size: 96px;
 }
 
@@ -153,7 +153,7 @@ table {
                     </table>
                 </div>
 
-                <div class="title">
+                <div id="title">
                     <?php //<i class="fa fa-angle-double-down"></i> ?> vido:
                     <span id="qm" title="Type ? for commands" onclick="$('#fade').toggle()">?</span>
                 </div>

@@ -63,6 +63,8 @@ $(function() {
         console.log(code);
 
         fade    = $('#fade');
+        form    = $('#input-form');
+        title   = $('#title');
         if ( press && code == 13 ) {
             // Return: Edit an existing item
             li = $('#item-table tr');
@@ -114,6 +116,8 @@ $(function() {
         if ( shifted && press && code == 63 ) {
             // ?: Show commands
             fade.toggle();
+            form.toggle();
+            title.toggle();
         }
         if ( press && ( code == 73 || code == 65 )) {
             // A or I: Add to bottom of list
