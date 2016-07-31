@@ -119,14 +119,14 @@ $(function() {
             form.toggle();
             title.toggle();
         }
-        if ( press && ( code == 73 || code == 65 )) {
-            // A or I: Add to bottom of list
+        if ( press && ( code == 73 || code == 65 || code == 79 )) {
+            // A or I or O: Add to bottom of list
             $('#upper-input-row').hide();
             $('#lower-input-row').toggle();
             $('#lower-name-input').focus();
         }
-        if ( press && ( code == 97 || code == 105 )) {
-            // a or i: Add to top of list
+        if ( press && ( code == 97 || code == 105 || code == 111 )) {
+            // a or i or o: Add to top of list
             $('#lower-input-row').hide();
             $('#upper-input-row').toggle();
             $('#upper-name-input').focus();

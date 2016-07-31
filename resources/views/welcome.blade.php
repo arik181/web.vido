@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/css/font-awesome-4.6.3/css/font-awesome.min.css">
         <script type="text/javascript" src="/js/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/js/keys.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
 
         <style>
 html, body {
@@ -105,11 +106,11 @@ table {
                         <td class="rightcol">Edit an item.</td>
                     </tr>
                     <tr id="key-2"> 
-                        <td class="leftcol" style="color:green;">a / i</td>
+                        <td class="leftcol" style="color:green;">a / i / o</td>
                         <td class="rightcol">Add to top.</td>
                     </tr>
                     <tr id="key-3"> 
-                        <td class="leftcol" style="color:green;">A / I</td>
+                        <td class="leftcol" style="color:green;">A / I / O</td>
                         <td class="rightcol">Add to bottom.</td>
                     </tr>
                     <tr id="key-3"> 
